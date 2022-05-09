@@ -170,3 +170,31 @@ WriteResult({ "nInserted" : 1 })
 WriteResult({ "nInserted" : 1 })
 > db.tkm.find({$and:[{"degree":"bca"},{"sem":"6"}]})
 { "_id" : ObjectId("a948d4cef7d11cdb8c30ca0b"), "srn" : "110", "sname" : "sundar", "degree" : "bca", "sem" : "6", "cgpa" : "6.79" }
+
+ db.tkm.update({sname:"jjj"},{$set:{sname:"jeslin"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.tkm.find()
+{ "_id" : ObjectId("a948d2b3f7d11cdb8c30ca01"), "srn" : "101", "sname" : "jeslin", "degree" : "btech", "sem" : "1", "cgpa" : "5.2" }
+{ "_id" : ObjectId("a948d2c4f7d11cdb8c30ca02"), "srn" : "102", "sname" : "iii", "degree" : "bca", "sem" : "2", "cgpa" : "7.3" }
+{ "_id" : ObjectId("a948d2dbf7d11cdb8c30ca03"), "srn" : "103", "sname" : "hhh", "degree" : "barch", "sem" : "2", "cgpa" : "6.5" }
+{ "_id" : ObjectId("a948d2eaf7d11cdb8c30ca04"), "srn" : "104", "sname" : "nnn", "degree" : "bca", "sem" : "3", "cgpa" : "6.85" }
+{ "_id" : ObjectId("a948d2f7f7d11cdb8c30ca05"), "srn" : "105", "sname" : "mmm", "degree" : "bsc", "sem" : "4", "cgpa" : "7.45" }
+{ "_id" : ObjectId("a948d348f7d11cdb8c30ca06"), "srn" : "106", "sname" : "rrr", "degree" : "btech", "sem" : "1", "cgpa" : "8.1" }
+{ "_id" : ObjectId("a948d35ff7d11cdb8c30ca07"), "srn" : "107", "sname" : "kkk", "degree" : "barch", "sem" : "2", "cgpa" : "6.85" }
+{ "_id" : ObjectId("a948d36af7d11cdb8c30ca08"), "srn" : "108", "sname" : "rahul", "degree" : "bca", "sem" : "3", "cgpa" : "7.56" }
+{ "_id" : ObjectId("a948d375f7d11cdb8c30ca09"), "srn" : "109", "sname" : "bajaj", "degree" : "bsc", "sem" : "4", "cgpa" : "6.3" }
+{ "_id" : ObjectId("a948d37ef7d11cdb8c30ca0a"), "srn" : "110", "sname" : "sundar", "degree" : "btech", "sem" : "3", "cgpa" : "6.79" }
+{ "_id" : ObjectId("a948d4cef7d11cdb8c30ca0b"), "srn" : "110", "sname" : "sundar", "degree" : "bca", "sem" : "6", "cgpa" : "6.79" }
+> db.tkm.find({name :{$regex:"an"}})
+> db.tkm.find({name :{$regex:"n"}})
+> db.tkm.find({sname :{$regex:"n"}})
+{ "_id" : ObjectId("a948d2b3f7d11cdb8c30ca01"), "srn" : "101", "sname" : "jeslin", "degree" : "btech", "sem" : "1", "cgpa" : "5.2" }
+{ "_id" : ObjectId("a948d2eaf7d11cdb8c30ca04"), "srn" : "104", "sname" : "nnn", "degree" : "bca", "sem" : "3", "cgpa" : "6.85" }
+{ "_id" : ObjectId("a948d37ef7d11cdb8c30ca0a"), "srn" : "110", "sname" : "sundar", "degree" : "btech", "sem" : "3", "cgpa" : "6.79" }
+{ "_id" : ObjectId("a948d4cef7d11cdb8c30ca0b"), "srn" : "110", "sname" : "sundar", "degree" : "bca", "sem" : "6", "cgpa" : "6.79" }
+> db.tkm.find({sname :{$regex:"^j"}})
+{ "_id" : ObjectId("a948d2b3f7d11cdb8c30ca01"), "srn" : "101", "sname" : "jeslin", "degree" : "btech", "sem" : "1", "cgpa" : "5.2" }
+>
+> db.tkm.find({sname :{$regex:"j$"}})
+{ "_id" : ObjectId("a948d375f7d11cdb8c30ca09"), "srn" : "109", "sname" : "bajaj", "degree" : "bsc", "sem" : "4", "cgpa" : "6.3" }
+>
