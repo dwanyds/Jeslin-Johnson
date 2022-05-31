@@ -1,0 +1,7 @@
+
+
+C:\Program Files\MongoDB\Server\5.0\bin>start mongod -replSet qwerty -logpath \data\rs1\1.log  -dbpath \data\rs1 --port 27018
+
+C:\Program Files\MongoDB\Server\5.0\bin>start mongod -replSet qwerty -logpath \data\rs2\2.log  -dbpath \data\rs2 --port 27019
+
+C:\Program Files\MongoDB\Server\5.0\bin>start mongod -replSet qwerty -logpath \data\rs3\3.log  -dbpath \data\rs3 --port 27020
