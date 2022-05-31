@@ -94,4 +94,16 @@ department.
 > db.studlist.find({grade:"A+",gender:"male"},{fname:1,lname:1,_id:0})
 { "fname" : "jeslin", "lname" : "johnson" }
 
+4.Display the names of the top three students in Mechanical department
+> db.studlist.find({department:"mech"},{_id:0}).sort({mark:-1}).limit(3)
+{ "fname" : "vinay", "lname" : "george", "grade" : "A", "mark" : 85, "contact" : 7078885163, "location" : "ekm", "department" : "Mech", "gender" : "male" }
+
+5. Display the details of female students [fname,lname,grade,mark,contact] who achieved a
+mark more than 90
+> db.studlist.find({mark:{$gt:90},gender:"female"},{fname:1,lname:1,grade:1,mark:1,contact:1})
+{ "_id" : ObjectId("628deea121b5af8b4595d7c8"), "fname" : "jeslin", "lname" : "johnson", "grade" : "A+", "mark" : 95, "contact" : 7025585163 }
+{ "_id" : ObjectId("628df06721b5af8b4595d7cb"), "fname" : "Juliniya", "lname" : "joseph", "grade" : "A+", "mark" : 98, "contact" : 8547097823 }
+
+
+ 
 
