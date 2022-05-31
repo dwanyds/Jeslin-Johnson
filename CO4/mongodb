@@ -24,3 +24,169 @@ C:\Program Files\MongoDB\Server\5.0\bin>start mongod -replSet qwerty -logpath \d
                 }
         ]
 }
+
+
+
+
+
+C:\Program Files\MongoDB\Server\5.0\bin>mongo --port 27019
+MongoDB shell version v5.0.8
+connecting to: mongodb://127.0.0.1:27019/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("d49861bf-6311-4046-9aaf-310fce7d2bc8") }
+MongoDB server version: 5.0.8
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-05-31T11:19:49.803+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+        2022-05-31T11:19:49.803+05:30: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+qwerty:SECONDARY> use newone
+switched to db newone
+qwerty:SECONDARY> show dbs
+uncaught exception: Error: listDatabases failed:{
+        "topologyVersion" : {
+                "processId" : ObjectId("6295ac7cfc2a660f1796fc7a"),
+                "counter" : NumberLong(4)
+        },
+        "ok" : 0,
+        "errmsg" : "not master and slaveOk=false",
+        "code" : 13435,
+        "codeName" : "NotPrimaryNoSecondaryOk",
+        "$clusterTime" : {
+                "clusterTime" : Timestamp(1653977680, 1),
+                "signature" : {
+                        "hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
+                        "keyId" : NumberLong(0)
+                }
+        },
+        "operationTime" : Timestamp(1653977680, 1)
+} :
+_getErrorWithCode@src/mongo/shell/utils.js:25:13
+Mongo.prototype.getDBs/<@src/mongo/shell/mongo.js:145:19
+Mongo.prototype.getDBs@src/mongo/shell/mongo.js:97:12
+shellHelper.show@src/mongo/shell/utils.js:956:13
+shellHelper@src/mongo/shell/utils.js:838:15
+@(shellhelp2):1:1
+qwerty:SECONDARY> rs.secondaryOk()
+qwerty:SECONDARY> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+newone  0.000GB
+qwerty:SECONDARY> db.newone.find()
+qwerty:SECONDARY> db.stud.find()
+{ "_id" : ObjectId("6295b1ace5977875e4ec6d6e"), "name" : "jeslin" }
+qwerty:SECONDARY> db.stud.insert({"name":"john"})
+WriteCommandError({
+        "topologyVersion" : {
+                "processId" : ObjectId("6295ac7cfc2a660f1796fc7a"),
+                "counter" : NumberLong(4)
+        },
+        "ok" : 0,
+        "errmsg" : "not master",
+        "code" : 10107,
+        "codeName" : "NotWritablePrimary",
+        "$clusterTime" : {
+                "clusterTime" : Timestamp(1653977900, 1),
+                "signature" : {
+                        "hash" : BinData(0,"AAAAAAAAAAAAAAAAAAAAAAAAAAA="),
+                        "keyId" : NumberLong(0)
+                }
+        },
+        "operationTime" : Timestamp(1653977900, 1)
+})
+qwerty:SECONDARY>
+
+
+
+
+
+
+C:\Program Files\MongoDB\Server\5.0\bin>mongo --port 27018
+MongoDB shell version v5.0.8
+connecting to: mongodb://127.0.0.1:27018/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("0eae8ba0-2cb9-4b63-8ed4-ea04c6a799de") }
+MongoDB server version: 5.0.8
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+---
+The server generated these startup warnings when booting:
+        2022-05-31T11:19:23.686+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+        2022-05-31T11:19:23.686+05:30: This server is bound to localhost. Remote systems will be unable to connect to this server. Start the server with --bind_ip <address> to specify which IP addresses it should serve responses from, or with --bind_ip_all to bind to all interfaces. If this behavior is desired, start the server with --bind_ip 127.0.0.1 to disable this warning
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+  config={_id:"qwerty",members:[{_id:0,host:"localhost":27018"},{_id:1,host:"localhost":27019},{_id:2,host:"localhost":gfhg]}
+uncaught exception: SyntaxError: missing } after property list :{_id:1,host:"localhost":27019},{_id:2,host:"localhost":gfhg]}
+@(shell):1:53:"qwerty",members:[{_id:0,host:"localhost":27018"},{_id:1,host:"localhost":27019},{_id:2,host:"localhost":gfh]}
+> config={_id:"qwerty",members:[{_id:0,host:"localhost":27018"},{_id:1,host:"localhost":27019},{_id:2,host:"localhost":gf]}
+> config={_id:"qwerty",members:[{_id:0,host:"localhost":27018"},{_id:1,host:"localhost":27019},{_id:2,host:"localhost":g]}
+> config={_id:"qwerty",members:[{_id:0,host:"localhost":27018"},{_id:1,host:"localhost":27019},{_id:2,host:"localhost":]}
+> config={_id:"qwerty",members:[{_id:0,host:"localhost":27018"},{_id:1,host:"localhost":27019},{_id:2,host:"localhost"]}
+>
+>
+>
+>
+>
+> config={_id:"qwerty",members:[{_id:0,host:"localhost:27018"},{_id:1,host:"localhost:27019"},{_id:2,host:"localhost:27020"}]}
+{
+        "_id" : "qwerty",
+        "members" : [
+                {
+                        "_id" : 0,
+                        "host" : "localhost:27018"
+                },
+                {
+                        "_id" : 1,
+                        "host" : "localhost:27019"
+                },
+                {
+                        "_id" : 2,
+                        "host" : "localhost:27020"
+                }
+        ]
+}
+> rs.initiate(config)
+{ "ok" : 1 }
+qwerty:SECONDARY> rs.status
+function() {
+    return db._adminCommand("replSetGetStatus");
+}
+qwerty:PRIMARY>
+qwerty:PRIMARY> show dbs
+admin   0.000GB
+config  0.000GB
+local   0.000GB
+qwerty:PRIMARY> show collections
+qwerty:PRIMARY> use newone
+switched to db newone
+qwerty:PRIMARY> db.stud.insert({"name":"jeslin"})
+WriteResult({ "nInserted" : 1 })
+qwerty:PRIMARY> db.stud.find()
+{ "_id" : ObjectId("6295b1ace5977875e4ec6d6e"), "name" : "jeslin" }
+qwerty:PRIMARY>
